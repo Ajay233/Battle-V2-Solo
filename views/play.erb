@@ -1,0 +1,17 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <%= @player_1_name %> vs <%= @player_2_name %> .... FIGHT!
+    <div>
+      <%= @player_2_name %> HP = <%= @player_2_hp %>
+    </div>
+    <form action="/attack" method="post">
+      <input type="submit" value="Attack">
+    </form>
+  </body>
+</html>
