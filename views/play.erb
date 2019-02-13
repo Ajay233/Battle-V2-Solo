@@ -7,16 +7,17 @@
   </head>
   <body>
     <center>
-    <%= @player_1_name %> vs <%= @player_2_name %> .... FIGHT!
+    <%= @game.player_1.name %> vs <%= @game.player_2.name %> .... FIGHT!
+
     <div>
-      <%= @player_2_name%>
+      <%= @game.player_2.name%>
       <br>
-      <%= @player_2_name %> HP = <%= @player_2_hp %>
+      <%= @game.player_2.name %> HP = <%= @game.player_2.hp %>
     </div>
     <div class="">
-      <%= @player_1_name%>
+      <%= @game.player_1.name%>
       <br>
-      <%= @player_1_name %> HP = <%= @player_1_hp %>
+      <%= @game.player_1.name %> HP = <%= @game.player_1.hp %>
     </div>
     <form action="/attack" method="post">
       <input type="submit" value="Attack">

@@ -2,9 +2,18 @@ class Player
   attr_reader :name, :hp
   DEFAULT_HP = 100
 
-  def initialize(name)
+  def initialize(name = "CPU")
     @name = name
     @hp = DEFAULT_HP
+    @status = ""
+  end
+
+  def self.create(*names)
+    @player = Player.new(*names)
+  end
+
+  def self.instance
+    @player
   end
 
 # Private method??
