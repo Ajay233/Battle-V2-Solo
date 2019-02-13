@@ -8,8 +8,16 @@ class Player
   end
 
 # Private method??
+# Will need an if to prevent HP going below 0
   def receive_damage
-    @hp -= rand(1..10)
+    # @hp -= rand(1..10)
+    @hp -= 10
+  end
+
+# Will need an if to prevent HP going over 100
+  def heal
+    # @hp += rand(1..10)
+    @hp += 10
   end
 
 end

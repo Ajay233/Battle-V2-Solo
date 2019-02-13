@@ -29,7 +29,15 @@ post "/attack" do
   @player_1 = $player_1
   @player_2 = $player_2
   Game.attack(@player_2)
-  erb :attack
+  redirect "/play"
+end
+
+post "/heal" do
+  @player_2_name = $player_2.name
+  @player_1 = $player_1
+  @player_2 = $player_2
+  Game.heal_player(@player_2)
+  redirect "/play"
 end
 
 run! if app_file == $0
