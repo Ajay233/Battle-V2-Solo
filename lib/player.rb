@@ -21,12 +21,14 @@ class Player
   def receive_damage
     # @hp -= rand(1..10)
     @hp -= 10
+    @status = "hit"
   end
 
 # Will need an if to prevent HP going over 100
   def heal
     # @hp += rand(1..10)
     @hp += 10
+    @status = "medicated"
   end
 
 end

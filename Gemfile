@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rspec'
-gem 'sinatra'
 gem 'capybara'
+gem 'sinatra'
+gem 'sinatra-flash'
+gem 'rspec'

@@ -1,10 +1,12 @@
 require 'sinatra/base'
+require 'sinatra/flash'
 require './lib/player'
 require './lib/game'
 
 
 class Battle < Sinatra::Base
 enable :sessions
+register Sinatra::Flash
 
 get "/" do
   erb :index
@@ -26,13 +28,27 @@ get "/play" do
 end
 
 post "/attack" do
-  Game.attack(@game.player_2)
-  redirect "/play"
+  opponent = @game.opponent
+  @game.attack(opponent)
+  if @game.opponent.hp == 0
+    redirect "/game_over"
+  else
+    flash[:red] = "Damn, #{opponent.name} got hit!!"
+    @game.turn_switch
+    redirect "/play"
+  end
 end
 
 post "/heal" do
-  Game.heal_player(@game.player_2)
+  curr_player = @game.current_player
+  @game.heal_player(curr_player)
+  flash[:red] = "#{curr_player.name} applied first aid!!"
+  @game.turn_switch
   redirect "/play"
+end
+
+get "/game_over" do
+  erb :game_over
 end
 
 run! if app_file == $0

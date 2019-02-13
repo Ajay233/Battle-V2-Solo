@@ -2,30 +2,48 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <meta charset="utf-8">
-    <title></title>
+    <title>Battle Main Page</title>
+    <style media="screen">
+      body {
+        background-image: url("/battle.jpg");
+        font-family: helvetica;
+        color: white;
+      }
+      </style>
   </head>
   <body>
     <center>
-    <%= @game.player_1.name %> vs <%= @game.player_2.name %> .... FIGHT!
+      <h1>
+        <%= @game.player_1.name %> vs <%= @game.player_2.name %> .... FIGHT!
+      </h1>
 
-    <div>
-      <%= @game.player_2.name%>
+      <div class="">
+        <% if flash[:green] %>
+            <%= flash[:green] %>
+        <% elsif flash[:red] %>
+            <%= flash[:red] %>
+        <% end %>
+      </div>
+
+      <div>
+        <%= @game.player_2.name%>
+        <br>
+        <%= @game.player_2.name %> HP = <%= @game.player_2.hp %>
+      </div>
+      <div class="">
+        <%= @game.player_1.name%>
+        <br>
+        <%= @game.player_1.name %> HP = <%= @game.player_1.hp %>
+      </div>
+      <form action="/attack" method="post">
+        <input type="submit" value="Attack">
+      </form>
       <br>
-      <%= @game.player_2.name %> HP = <%= @game.player_2.hp %>
-    </div>
-    <div class="">
-      <%= @game.player_1.name%>
-      <br>
-      <%= @game.player_1.name %> HP = <%= @game.player_1.hp %>
-    </div>
-    <form action="/attack" method="post">
-      <input type="submit" value="Attack">
-    </form>
-    <br>
-    <form action="/heal" method="post">
-      <input type="submit" value="heal">
-    </form>
-  </center>
+      <form action="/heal" method="post">
+        <input type="submit" value="heal">
+      </form>
+    </center>
   </body>
 </html>
