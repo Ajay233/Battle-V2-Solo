@@ -28,8 +28,10 @@ get "/play" do
 end
 
 post "/attack" do
+  curr_player = @game.current_player
   opponent = @game.opponent
   @game.attack(opponent)
+  @game.check_poisoned(curr_player)
   if @game.opponent.hp == 0
     redirect "/game_over"
   else
@@ -39,9 +41,63 @@ post "/attack" do
   end
 end
 
+post "/paralyse" do
+  curr_player = @game.current_player
+  opponent = @game.opponent
+  @game.paralyse_attack(opponent)
+  @game.check_poisoned(curr_player)
+  if @game.opponent.hp == 0
+    redirect "/game_over"
+  else
+    flash[:red] = "Damn, #{opponent.name} got hit!!"
+    if opponent.paralysed == true
+      flash[:red] = "#{opponent.name} is paralysed with fear and misses the next turn!!"
+    end
+    @game.turn_switch
+    redirect "/play"
+  end
+end
+
+post "/poison" do
+  curr_player = @game.current_player
+  opponent = @game.opponent
+  @game.poison_attack(opponent)
+  @game.check_poisoned(curr_player)
+  if @game.opponent.hp == 0
+    redirect "/game_over"
+  else
+    flash[:red] = "Damn, #{opponent.name} got hit!!"
+    if opponent.poisoned == true
+      flash[:red] = "#{opponent.name} staggers, realising #{curr_player.name}
+      used a poisoned weapon.  #{opponent.name} will lose between 1 and 6 HP on
+      the next turn"
+    end
+    @game.turn_switch
+    redirect "/play"
+  end
+end
+
+post "/sleep" do
+  curr_player = @game.current_player
+  opponent = @game.opponent
+  @game.paralyse_attack(opponent)
+  @game.check_poisoned(curr_player)
+  if @game.opponent.hp == 0
+    redirect "/game_over"
+  else
+    flash[:red] = "Damn, #{opponent.name} got hit!!"
+    if opponent.paralysed == true
+      flash[:red] = "#{opponent.name} was cut by #{curr_player.name}'s sleep blade and misses the next turn!!"
+    end
+    @game.turn_switch
+    redirect "/play"
+  end
+end
+
 post "/heal" do
   curr_player = @game.current_player
   @game.heal_player(curr_player)
+  @game.check_poisoned(curr_player)
   flash[:red] = "#{curr_player.name} applied first aid!!"
   @game.turn_switch
   redirect "/play"
