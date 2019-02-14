@@ -16,6 +16,7 @@ post '/names' do
   player_1 = Player.new(params[:player_1_name])
   player_2 = Player.new(params[:player_2_name])
   @game = Game.create(player_1, player_2)
+  flash[:gold] = "#{@game.turn.name}'s turn"
   redirect '/play'
 end
 
@@ -37,6 +38,7 @@ post "/attack" do
   else
     flash[:red] = "Damn, #{opponent.name} got hit!!"
     @game.turn_switch
+    flash[:gold] = "#{@game.turn.name}'s turn"
     redirect "/play"
   end
 end
@@ -49,11 +51,13 @@ post "/paralyse" do
   if @game.opponent.hp == 0
     redirect "/game_over"
   else
-    flash[:red] = "Damn, #{opponent.name} got hit!!"
     if opponent.paralysed == true
-      flash[:red] = "#{opponent.name} is paralysed with fear and misses the next turn!!"
+      flash[:blue] = "#{opponent.name} is paralysed with fear and misses the next turn!!"
+    else
+      flash[:red] = "Damn, #{opponent.name} got hit!!"
     end
     @game.turn_switch
+    flash[:gold] = "#{@game.turn.name}'s turn"
     redirect "/play"
   end
 end
@@ -66,13 +70,15 @@ post "/poison" do
   if @game.opponent.hp == 0
     redirect "/game_over"
   else
-    flash[:red] = "Damn, #{opponent.name} got hit!!"
     if opponent.poisoned == true
-      flash[:red] = "#{opponent.name} staggers, realising #{curr_player.name}
+      flash[:purple] = "#{opponent.name} staggers, realising #{curr_player.name}
       used a poisoned weapon.  #{opponent.name} will lose between 1 and 6 HP on
       the next turn"
+    else
+      flash[:red] = "Damn, #{opponent.name} got hit!!"
     end
     @game.turn_switch
+    flash[:gold] = "#{@game.turn.name}'s turn"
     redirect "/play"
   end
 end
@@ -85,11 +91,13 @@ post "/sleep" do
   if @game.opponent.hp == 0
     redirect "/game_over"
   else
-    flash[:red] = "Damn, #{opponent.name} got hit!!"
     if opponent.paralysed == true
-      flash[:red] = "#{opponent.name} was cut by #{curr_player.name}'s sleep blade and misses the next turn!!"
+      flash[:yellow] = "#{opponent.name} was cut by #{curr_player.name}'s sleep blade and misses the next turn!!"
+    else
+      flash[:red] = "Damn, #{opponent.name} got hit!!"
     end
     @game.turn_switch
+    flash[:gold] = "#{@game.turn.name}'s turn"
     redirect "/play"
   end
 end
@@ -98,8 +106,9 @@ post "/heal" do
   curr_player = @game.current_player
   @game.heal_player(curr_player)
   @game.check_poisoned(curr_player)
-  flash[:red] = "#{curr_player.name} applied first aid!!"
+  flash[:green] = "#{curr_player.name} used a healing potion"
   @game.turn_switch
+  flash[:gold] = "#{@game.turn.name}'s turn"
   redirect "/play"
 end
 

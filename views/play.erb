@@ -3,7 +3,9 @@
 <html>
   <head>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700" rel="stylesheet">
     <meta charset="utf-8">
     <title>Battle Main Page</title>
     <style media="screen">
@@ -12,51 +14,240 @@
         font-family: helvetica;
         color: white;
       }
+      .icons {
+        font-size: 50px;
+        background-image: url("/carbon.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 78px;
+        border-style: ridge;
+        margin-bottom: 10px;
+      }
+      .submit{
+        background-color: rgba(255, 0, 0, 0.5);
+        border-color: inherit;
+        border-style: outset;
+        border-radius: 5px;
+        padding: 5px 20px;
+        color: white;
+        font-family: 'UnifrakturCook', cursive;
+      }
+      h1{
+        font-family: 'UnifrakturCook', cursive;
+        text-shadow: 0 0 3px #FF0000;
+      }
+      .move-container{
+        display: grid;
+        grid-template-columns: 150px 150px 150px 150px 150px;
+        justify-content: center;
+        margin-top: 50px;
+        margin-bottom: 30px;
+        margin-left: 15%;
+        margin-right: 15%;
+      }
+      .players-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+        margin-left: 14%;
+        margin-right: 16%;
+        text-align: center;
+      }
+      form{
+        /*float: left;*/
+        margin-left: 30px;
+
+      }
+      #vs{
+        font-family: 'UnifrakturCook', cursive;
+        text-shadow: 0 0 3px #FF0000;
+        font-size: 80px;
+        padding-top: 40px;
+        padding-bottom: 20px;
+        width: 350px;
+      }
+      .turn{
+        margin-top: 62px;
+        font-size: 20px;
+      }
+      .player-card{
+        /*background-image: url("/carbon.jpg");*/
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-color: rgba(10,10,10,0.6);
+        border-style: groove;
+        border-radius: 5px;
+        /*opacity: 0.5;*/
+        height: 300px;
+      }
+      #p1-pic{
+        width: 300px;
+        height: 300px;
+        opacity: 1;
+      }
+      #p2-pic{
+        width: 300px;
+        height: 300px;
+      }
+      .w3-container{
+        margin-top: 10px;
+      }
+      .w3-red{
+        /*border: solid 1px black;*/
+        border-radius: 10px;
+        border-style: groove;
+      }
+      .w3-yellow{
+        height: 24px;
+        border-radius: 7px;
+      }
+      #flash-notice{
+        border-radius: 10px;
+        width: fit-content;
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+      .gold-alert{
+        width: 200px;
+        background-color: rgba(229, 199, 32, 0.6);
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 20px;
+      }
+      .green-alert{
+        width: 250px;
+        background-color: rgba(97, 221, 107, 0.6);
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 15px;
+      }
+      .red-alert{
+        width: 250px;
+        background-color: rgba(229, 32, 32, 0.6);
+        margin-top: 15px;
+      }
+      .purple-alert{
+        width: 250px;
+        background-color: rgba(207, 29, 226, 0.6);
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 15px;
+      }
+      .blue-alert{
+        width: 250px;
+        background-color: rgba(72, 204, 219, 0.6);
+        padding-left: 5px;
+        padding-right: 5px;
+        margin-top: 15px;
+      }
+      .yellow-alert{
+        width: 250px;
+        background-color: rgba(247, 244, 54, 0.6);
+        margin-top: 15px;
+      }
       </style>
   </head>
   <body>
     <center>
       <h1>
-        <%= @game.player_1.name %> vs <%= @game.player_2.name %> .... FIGHT!
+        <%= @game.player_1.name %> vs <%= @game.player_2.name %> .... Fight
       </h1>
-
-      <div class="">
-        <% if flash[:green] %>
-            <%= flash[:green] %>
-        <% elsif flash[:red] %>
-            <%= flash[:red] %>
-        <% end %>
+    </center>
+      <div class="players-container">
+        <div class="" style="width:300px;">
+        <h1><%= @game.player_1.name%></h1>
+        <div class="player-card">
+          <img id="p1-pic" src="/player1transparent.png" alt="on">
+        </div>
+        <div class="w3-container">
+          <div class="w3-red">
+            <div class="w3-yellow" style="width:30%;"> <%= @game.player_1.hp %>HP </div>
+          </div>
+        </div>
       </div>
-
-      <div>
-        <%= @game.player_2.name%>
-        <br>
-        <%= @game.player_2.name %> HP = <%= @game.player_2.hp %>
+        <div class="">
+          <center>
+          <div class="turn">
+            <% if flash[:gold] %>
+            <div id="flash-notice" class="gold-alert" role="alert">
+            <i class="fas fa-skull"></i>  <%= flash[:gold] %> <i class="fas fa-skull"></i>
+            </div>
+            <% end %>
+          </div>
+        </center>
+          <p id="vs">VS</p>
+          Status updates appear below:
+          <center>
+          <div class="">
+            <% if flash[:green] %>
+            <div id="flash-notice" class="green-alert" role="alert">
+              <%= flash[:green] %>
+            </div>
+            <% elsif flash[:red] %>
+            <div id="flash-notice" class="red-alert" role="alert">
+              <%= flash[:red] %>
+            </div>
+            <% elsif flash[:purple] %>
+            <div id="flash-notice" class="purple-alert" role="alert">
+              <%= flash[:purple] %>
+            </div>
+            <% elsif flash[:blue] %>
+            <div id="flash-notice" class="blue-alert" role="alert">
+              <%= flash[:blue] %>
+            </div>
+            <% elsif flash[:yellow] %>
+            <div id="flash-notice" class="yellow-alert" role="alert">
+              <%= flash[:yellow] %>
+            </div>
+            <% end %>
+          </div>
+        </center>
+        </div>
+        <div class="" style="width:300px;">
+        <h1><%= @game.player_2.name%></h1>
+        <div class="player-card">
+          <img id="p2-pic" src="/player2transparent.png" alt="">
+        </div>
+        <div class="w3-container">
+          <div class="w3-red">
+            <div class="w3-yellow" style="width:30%;"> <%= @game.player_2.hp %>HP </div>
+          </div>
+        </div>
       </div>
-      <div class="">
-        <%= @game.player_1.name%>
-        <br>
-        <%= @game.player_1.name %> HP = <%= @game.player_1.hp %>
       </div>
+      <center>
+      <div class="move-container">
       <form action="/attack" method="post">
-        <input type="submit" value="Attack">
+        <div class="icons">
+          <i class="fas fa-fist-raised"></i>
+        </div>
+        <input class="submit" type="submit" value= "Attack">
       </form>
-      <br>
       <form action="/paralyse" method="post">
-        <input type="submit" value="Paralyse">
+      <div class="icons">
+        <i class="fas fa-diagnoses"></i>
+      </div>
+        <input class="submit" type="submit" value="Paralyse">
       </form>
-      <br>
       <form action="/poison" method="post">
-        <input type="submit" value="Poison">
+        <div class="icons">
+          <i class="fas fa-skull-crossbones"></i>
+        </div>
+        <input class="submit" type="submit" value="Poison">
       </form>
-      <br>
       <form action="/sleep" method="post">
-        <input type="submit" value="Sleep">
+        <div class="icons">
+          <i class="fas fa-bed"></i>
+        </div>
+        <input class="submit" type="submit" value="Sleep">
       </form>
-      <br>
       <form action="/heal" method="post">
-        <input type="submit" value="Heal">
+        <div class="icons">
+          <i class="fas fa-user-injured"></i>
+        </div>
+        <input class="submit" type="submit" value="Heal">
       </form>
+      </div>
+      <br>
     </center>
   </body>
 </html>

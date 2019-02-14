@@ -1,13 +1,40 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=UnifrakturCook:700" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Creepster" rel="stylesheet">
     <meta charset="utf-8">
     <title>Game Over Screen</title>
     <style media="screen">
       body {
-        background-image: url("/win1.jpg");
+        background-image: url("/win2.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
         font-family: helvetica;
         color: white;
+      }
+      .submit{
+        font-family: 'UnifrakturCook', cursive;
+        font-size: 20px;
+        background-color: red;
+        border-color: inherit;
+        border-style: outset;
+        border-radius: 5px;
+        padding: 15px 20px;
+        color: white;
+      }
+      h1{
+        font-family: 'UnifrakturCook', cursive;
+        text-shadow: 0 0 3px #FFFFFF;
+        font-size: 90px;
+        color: red;
+      }
+      h2{
+        font-family: 'Creepster', cursive;
+        text-shadow: 0 0 3px #FFFFFF;
+        font-size: 70px;
+        color: red;
       }
     </style>
   </head>
@@ -16,8 +43,10 @@
     <h1>
       <%= @game.turn.name %> Wins!!!
     </h1>
-
     <h2> Game Over</h2>
+    <form class="" action="/" method="get">
+      <input class="submit" type="submit" name="" value="Play Again?">
+    </form>
   </center>
   </body>
 </html>
