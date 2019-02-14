@@ -1,5 +1,7 @@
 # Battle
 
+This app is live at: https://battle-demo.herokuapp.com/ so please feel free to give it a try.  Please note that this is still a work in progress with single player still to be added and the paralyse attack needs to be refined.
+
 This is an extension of the Makers Bootcamp week 3 afternoon pairing challenge.  
 
 The aim of this project is to use knowledge of HTTP, CSS, response-request mechanisms, Sinatra, Capybara and Ruby to create a battle game that meets the requirements of the following user stories:
@@ -72,3 +74,23 @@ As a Player,
 So I can enjoy my game of Battle,
 I want a sexy user interface
 ```
+# Instructions for running the app
+
+If you don't have rack installed you can install it by running ```gem install rack``` in the command line.
+
+Once you have completed the steps above you will be able to run the app. In the command line, you need to be in the root of the chitter-challenge folder. You then just need to type: ```rackup```
+
+You should see a message similar to the one below confirming the app fired up and is running on port 9292:
+```
+[2019-02-11 14:56:17] INFO  WEBrick 1.4.2
+[2019-02-11 14:56:17] INFO  ruby 2.5.1 (2018-03-29) [x86_64-darwin15]
+[2019-02-11 14:56:17] INFO  WEBrick::HTTPServer#start: pid=66059 port=9292
+```
+Now you can open your browser and type in localhost:9292 which will load the welcome page and where can start using the app.
+
+To stop the app from running hit ```Ctrl + C``` in the command line and you should get a message similar to the one below confirming that the app is shutting down:
+```
+[2019-02-11 17:17:59] INFO  going to shutdown ...
+[2019-02-11 17:17:59] INFO  WEBrick::HTTPServer#start done.
+```
+*** For full details about the rack gem are available on the rack Github page: https://github.com/rack/rack ***
