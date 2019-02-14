@@ -38,6 +38,18 @@
         font-family: 'UnifrakturCook', cursive;
         font-size: 20px;
       }
+      .rules{
+        margin-top: 90px;
+        background-color: rgba(10,10,10,0.5);
+        border-radius: 10px;
+        width: 1000px;
+        padding-left: 6px;
+        padding-right: 6px;
+        color: white;
+      }
+      ul{
+        text-align: left;
+      }
     </style>
   </head>
   <body>
@@ -59,6 +71,21 @@
       </div>
       <div class="">
         <input class="submit" type="submit" value="Submit">
+      </div>
+      <br>
+      <div class="rules">
+        <h2>How to play</h2>
+        Players battle eachother by taking turns to attack each other.  The game is
+        over when a player's hit points (HP) goes down to 0.
+        <br>
+        <h4>Players have the following options of attack:</h4>
+        <ul>
+          <li>Attack - This will deal a random amoutn of damage between 1-10 HP</li>
+          <li>Paralyze - This attack has a 1 in 3 chance of causing the opposing player to be paralysed, meaning they miss a turn</li>
+          <li>Poison - This attack has a 1 in 3 chance of poisoning the opponent which will mean the opponent will lose between 1-6 HP on their next turn</li>
+          <li>Sleep - This attack has a 1 in 3 chance of causing the opposing player to fall asleep, meaning they miss a turn</li>
+          <li>Heal - This will return a random amount of helath (between 1-10 HP)</li>
+        </ul>
       </div>
     </center>
     </form>
