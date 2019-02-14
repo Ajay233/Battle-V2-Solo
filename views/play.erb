@@ -88,6 +88,11 @@
         width: 300px;
         height: 300px;
       }
+      .hp{
+        font-family: 'UnifrakturCook', cursive;
+        text-shadow: 0 0 3px #FF0000;
+        font-size: 30px;
+      }
       .w3-container{
         margin-top: 10px;
       }
@@ -158,6 +163,9 @@
         <div class="player-card">
           <img id="p1-pic" src="/player1transparent.png" alt="on">
         </div>
+        <div class="hp">
+          <%= @game.player_1.hp %> HP
+        </div>
         <!-- <div class="w3-container">
           <div class="w3-red">
             <div class="w3-yellow" style="width:30%;"> <%= @game.player_1.hp %>HP </div>
@@ -206,6 +214,9 @@
         <h1><%= @game.player_2.name%></h1>
         <div class="player-card">
           <img id="p2-pic" src="/player2transparent.png" alt="">
+        </div>
+        <div class="hp">
+          <%= @game.player_2.hp %> HP
         </div>
         <!-- <div class="w3-container">
           <div class="w3-red">
