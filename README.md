@@ -94,3 +94,22 @@ To stop the app from running hit ```Ctrl + C``` in the command line and you shou
 [2019-02-11 17:17:59] INFO  WEBrick::HTTPServer#start done.
 ```
 *** For full details about the rack gem are available on the rack Github page: https://github.com/rack/rack ***
+
+
+# Screenshots
+
+![Welcome Screen](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen1.png?raw=true)
+
+![Initial battle screen](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen2.png?raw=true)
+
+![Attack](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen3.png?raw=true)
+
+![Paralyse](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen4.png?raw=true)
+
+![Poison](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen5.png?raw=true)
+
+![Sleep](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen6.png?raw=true)
+
+![Heal](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen7.png?raw=true)
+
+![Game Over](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen8.png?raw=true)
