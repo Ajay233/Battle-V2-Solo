@@ -98,18 +98,26 @@ To stop the app from running hit ```Ctrl + C``` in the command line and you shou
 
 # Screenshots
 
+### Welcome Screen
 ![Welcome Screen](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen1.png?raw=true)
 
+### The "Battle" screen
 ![Initial battle screen](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen2.png?raw=true)
 
+### Attack
 ![Attack](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen3.png?raw=true)
 
+### Paralyse
 ![Paralyse](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen4.png?raw=true)
 
+### Poison
 ![Poison](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen5.png?raw=true)
 
+### Sleep
 ![Sleep](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen6.png?raw=true)
 
+### Heal
 ![Heal](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen7.png?raw=true)
 
+### Game Over
 ![Game Over](https://github.com/Ajay233/Battle-V2-Solo/blob/master/screenshots/Screen8.png?raw=true)
