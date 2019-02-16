@@ -25,7 +25,7 @@ before do
 end
 
 get "/play" do
-  erb :play
+  haml :play
 end
 
 post "/attack" do
